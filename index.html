@@ -17,6 +17,7 @@
       <a href="#beranda" class="logo"> YukHemat</a>
       <ul class="menu" id="navLinks">
         <li><a href="#beranda" class="active">Beranda</a></li>
+        <li><a href="#hasil-survei">Hasil Survei</a></li>
         <li><a href="#tentang">Latar Belakang</a></li>
         <li><a href="#tujuan">Tujuan</a></li>
       </ul>
@@ -53,6 +54,46 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section bg-abu" id="hasil-survei">
+    <div class="container">
+      <div class="judul-bagian">
+        <span class="sub-judul">Hasil Survei</span>
+        <h2>Perilaku Hemat Energi Siswa Kelas XI</h2>
+        <p>Data terolah dari kuesioner perilaku hemat energi yang diisi oleh siswa kelas XI.</p>
+      </div>
+      <div class="overview-grid" id="overviewCards"></div>
+
+      <div class="dashboard-grid">
+        <div class="panel">
+          <h3>Distribusi kategori</h3>
+          <div id="categoryList" class="category-list"></div>
+        </div>
+
+        <div class="panel">
+          <h3>Perilaku paling kuat</h3>
+          <ul id="topIndicators" class="indicator-list"></ul>
+        </div>
+
+        <div class="panel">
+          <h3>Area yang perlu ditingkatkan</h3>
+          <ul id="lowIndicators" class="indicator-list"></ul>
+        </div>
+      </div>
+
+
+      <div class="panel distribution-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="panel-kicker">Sebaran responden</span>
+            <h3>Distribusi skor total</h3>
+          </div>
+        </div>
+        <div id="scoreDistribution" class="distribution-chart"></div>
+      </div>
+
     </div>
   </section>
 
@@ -152,6 +193,7 @@
     </div>
   </footer>
 
+  <script src="js/data-perilaku-energi.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
