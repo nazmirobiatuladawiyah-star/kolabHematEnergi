@@ -17,11 +17,10 @@
       <a href="#beranda" class="logo"> YukHemat</a>
       <ul class="menu" id="navLinks">
         <li><a href="#beranda" class="active">Beranda</a></li>
-        <li><a href="#hasil-survei">Hasil Survei</a></li>
-        <li><a href="#tentang">Latar Belakang</a></li>
-        <li><a href="#tujuan">Tujuan</a></li>
+        <li><a href="#hasil-survei">Data & Fakta</a></li>
+        <li><a href="#aksi">Aksi & Rekomendasi</a></li>
       </ul>
-      <button class="menu-btn" id="navToggle" aria-label="Buka Menu">&#9776;</button>
+      <button class="menu-btn" id="navToggle" aria-label="Buka Menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
     </div>
   </header>
 
@@ -34,23 +33,23 @@
           Energi bukan sekadar angka di meteran listrik, melainkan masa depan sekolah kita. Mulai langkah nyata konservasi energi dari ruang kelas dan lingkungan sekolah kita hari ini.
         </p>
         <div class="hero-btn-group">
-          <a href="#tentang" class="btn btn-utama">Pelajari Kampanye</a>
-          <a href="#tujuan" class="btn btn-garis">Lihat Tujuan</a>
+          <a href="#hasil-survei" class="btn btn-utama">Lihat Data & Fakta</a>
+          <a href="#aksi" class="btn btn-garis">Mulai Aksi</a>
         </div>
       </div>
 
       <div class="hero-box">
         <div class="box-icon">💡</div>
         <h3>Langkah Kecil, Dampak Nyata</h3>
-        <p>Mematikan lampu, proyektor, dan keran air saat selesai dipakai menghemat puluhan kWh dan ratusan liter air setiap minggu!</p>
+        <p>Mulai dari kebiasaan yang sudah kuat, lalu perbaiki hal-hal kecil yang masih sering terlewat.</p>
         <div class="box-stats">
           <div>
-            <strong>100%</strong>
-            <span>Komitmen Warga</span>
+            <strong id="heroRespondents">636</strong>
+            <span>Suara Siswa</span>
           </div>
           <div>
-            <strong>24/7</strong>
-            <span>Peduli Lingkungan</span>
+            <strong id="heroPositive">90,8%</strong>
+            <span>Perilaku Positif</span>
           </div>
         </div>
       </div>
@@ -93,67 +92,119 @@
         <div id="scoreDistribution" class="distribution-chart"></div>
       </div>
 
+      <div class="chart-grid">
+        <article class="panel chart-panel">
+          <h3>Kategori perilaku siswa</h3>
+          <div class="chart-wrap chart-wrap-doughnut">
+            <canvas id="categoryChart" role="img" aria-label="Grafik kategori perilaku hemat energi"></canvas>
+          </div>
+          <p class="chart-caption">Sebagian besar responden sudah berada pada kategori Sangat Baik atau Baik.</p>
+        </article>
+        <article class="panel chart-panel">
+          <h3>Rata-rata per perilaku</h3>
+          <div class="chart-wrap">
+            <canvas id="behaviorChart" role="img" aria-label="Grafik rata-rata skor setiap perilaku hemat energi"></canvas>
+          </div>
+          <p class="chart-caption">Skor tertinggi ada pada praktik hemat energi sehari-hari; pembatasan gawai dan ajakan kepada teman perlu diperkuat.</p>
+        </article>
+        <article class="panel chart-panel chart-panel-wide">
+          <h3>Perbandingan rata-rata per jurusan</h3>
+          <div class="chart-wrap chart-wrap-jurusan">
+            <canvas id="majorChart" role="img" aria-label="Grafik rata-rata skor perilaku hemat energi menurut jurusan"></canvas>
+          </div>
+          <p class="chart-caption">Gunakan hasil ini untuk berbagi praktik baik antarjurusan, bukan untuk memberi label pada siswa.</p>
+        </article>
+      </div>
+      <p class="data-source-note" id="dataSourceNote">Memuat data survei…</p>
+
+      <div class="panel panel-wide">
+        <h3>Rincian jawaban per perilaku</h3>
+        <div id="indicatorTable" class="indicator-table"></div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Latar Belakang -->
+  <section class="section" id="aksi">
+    <div class="container">
+      <div class="judul-bagian">
+        <span class="sub-judul">Fase 3 · Rekomendasi & Ajakan Aksi</span>
+        <h2>Ubah Temuan Menjadi Kebiasaan</h2>
+        <p>Rekomendasi berikut berangkat dari perilaku dengan persentase “sering” terendah pada survei siswa kelas XI.</p>
+      </div>
+      <div class="recommendation-grid" id="recommendationList"></div>
+
+      <div class="challenge-panel" id="tantangan">
+        <div class="challenge-copy">
+          <span class="panel-kicker">Tantangan 7 hari</span>
+          <h3>Mulai dari satu kebiasaan hari ini</h3>
+          <p>Pilih aksi yang akan kamu lakukan. Setiap langkah kecil membantu membangun budaya hemat energi di sekolah.</p>
+          <div class="challenge-progress" aria-live="polite">
+            <span id="challengeProgressText">0 dari 5 aksi dipilih</span>
+            <div class="challenge-progress-track" role="progressbar" aria-label="Kemajuan tantangan aksi hemat energi" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="challengeProgressBar">
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="challenge-checklist" id="challengeChecklist"></div>
+      </div>
+      <div class="action-cta">
+        <p>Bagikan tantangan ini ke teman sekelas dan ajak satu sama lain untuk saling mengingatkan.</p>
+        <a href="#beranda" class="btn btn-utama">Kembali ke Beranda</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section bg-abu" id="tentang">
     <div class="container">
       <div class="judul-bagian">
-        <span class="sub-judul">Latar Belakang</span>
-        <h2>Kenapa Kampanye Ini Penting?</h2>
-        <p>Banyak energi terbuang percuma setiap hari di sekolah hanya karena kebiasaan kecil yang terabaikan.</p>
+        <span class="sub-judul">Tentang Kampanye</span>
+        <h2>Kenapa Hemat Energi Penting?</h2>
+        <p>Kebiasaan sederhana di sekolah dapat mengurangi pemakaian listrik yang tidak diperlukan dan menumbuhkan kepedulian bersama.</p>
       </div>
-
       <div class="grid-3">
-        <div class="kartu">
+        <article class="kartu">
           <div class="kartu-icon">🔌</div>
-          <h3>Daya Siluman (Phantom Load)</h3>
-          <p>Kabel adaptor, monitor, dan perangkat elektronik yang tetap tercolok saat tidak digunakan terus menyerap listrik tanpa henti.</p>
-        </div>
-
-        <div class="kartu">
+          <h3>Kurangi pemakaian siaga</h3>
+          <p>Cabut charger dan matikan perangkat setelah digunakan agar tidak terus terhubung tanpa kebutuhan.</p>
+        </article>
+        <article class="kartu">
           <div class="kartu-icon">🌏</div>
-          <h3>Dampak Emisi Karbon</h3>
-          <p>Pasokan listrik sekolah masih mengandalkan energi fosil. Tiap kilowatt yang dihemat berarti mengurangi emisi gas rumah kaca.</p>
-        </div>
-
-        <div class="kartu">
+          <h3>Jaga lingkungan</h3>
+          <p>Menggunakan listrik seperlunya adalah salah satu langkah nyata untuk menekan dampak penggunaan energi.</p>
+        </article>
+        <article class="kartu">
           <div class="kartu-icon">🤝</div>
-          <h3>Tanggung Jawab Bersama</h3>
-          <p>Merawat kelestarian lingkungan adalah amanah moral bersama yang selaras dengan nilai kepedulian sosial di lingkungan sekolah.</p>
-        </div>
+          <h3>Mulai bersama</h3>
+          <p>Budaya hemat energi tumbuh ketika siswa dan warga sekolah saling mengingatkan dengan cara yang positif.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Tujuan Kampanye -->
   <section class="section" id="tujuan">
     <div class="container">
       <div class="judul-bagian">
         <span class="sub-judul">Fokus & Sasaran</span>
-        <h2>Tujuan Utama Gerakan Ini</h2>
-        <p>Langkah nyata yang ingin dicapai melalui kampanye hemat energi sekolah.</p>
+        <h2>Tujuan Gerakan YukHemat</h2>
+        <p>Menjadikan hasil survei sebagai langkah awal perubahan perilaku yang dapat dilakukan setiap hari.</p>
       </div>
-
       <div class="grid-3">
-        <div class="kartu">
+        <article class="kartu">
           <span class="angka">01</span>
-          <h3>Membangun Kebiasaan</h3>
-          <p>Membiasakan siswa dan guru mematikan fasilitas listrik ketika meninggalkan ruangan kelas/lab.</p>
-        </div>
-
-        <div class="kartu">
+          <h3>Membangun kebiasaan</h3>
+          <p>Membiasakan warga sekolah mematikan fasilitas listrik saat tidak digunakan atau meninggalkan ruangan.</p>
+        </article>
+        <article class="kartu">
           <span class="angka">02</span>
-          <h3>Efisiensi Sekolah</h3>
-          <p>Menekan beban penggunaan daya listrik yang tidak perlu di lingkungan fasilitas sekolah.</p>
-        </div>
-
-        <div class="kartu">
+          <h3>Menguatkan perilaku</h3>
+          <p>Mempertahankan tindakan hemat energi yang sudah baik dan memperbaiki kebiasaan yang masih perlu perhatian.</p>
+        </article>
+        <article class="kartu">
           <span class="angka">03</span>
-          <h3>Aksi Kolaboratif</h3>
-          <p>Menjadi wadah edukasi interaktif bagi seluruh warga sekolah untuk peduli terhadap lingkungan.</p>
-        </div>
+          <h3>Mengajak kolaborasi</h3>
+          <p>Mendorong siswa saling mengingatkan dan berbagi praktik baik di kelas maupun di lingkungan sekolah.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -193,6 +244,7 @@
   </footer>
 
   <script src="js/data-perilaku-energi.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
